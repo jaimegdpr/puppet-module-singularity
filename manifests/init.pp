@@ -2,7 +2,7 @@
 class singularity (
   String $package_ensure = 'present',
   String $package_name = $singularity::params::package_name,
-  Boolean $manage_epel = true,
+  Boolean $manage_osg_repo = true,
   String $config_path = $singularity::params::config_path,
   String $config_template = 'singularity/singularity.conf.erb',
   Enum['yes','no'] $allow_setuid  = 'yes',
