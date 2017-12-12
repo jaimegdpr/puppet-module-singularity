@@ -8,8 +8,8 @@ class singularity::install {
 
                 yumrepo { "osg":
                     name => "osg",
-                    descr => "OSG Software for Enterprise Linux 6 - $basearch",
-                    mirrorlist => "http://repo.grid.iu.edu/mirror/osg/3.4/el6/release/$basearch",
+                    descr => 'OSG Software for Enterprise Linux 6 - $basearch',
+                    mirrorlist => 'http://repo.grid.iu.edu/mirror/osg/3.4/el6/release/$basearch',
                     failovermethod => priority,
                     enabled => 1,
                     priority => 98,
@@ -22,8 +22,8 @@ class singularity::install {
 
                 yumrepo { "osg":
                     name => "osg",
-                    descr => "OSG Software for Enterprise Linux 7 - $basearch",
-                    mirrorlist => "http://repo.grid.iu.edu/mirror/osg/3.4/el7/release/$basearch",
+                    descr => 'OSG Software for Enterprise Linux 7 - $basearch',
+                    mirrorlist => 'http://repo.grid.iu.edu/mirror/osg/3.4/el7/release/$basearch',
                     failovermethod => priority,
                     enabled => 1,
                     priority => 98,
