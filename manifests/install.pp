@@ -11,7 +11,7 @@ class singularity::install {
                     descr => 'OSG Software for Enterprise Linux 6 - $basearch',
                     mirrorlist => 'http://repo.grid.iu.edu/mirror/osg/3.4/el6/release/$basearch',
                     failovermethod => priority,
-                    enabled => 1,
+                    enabled => 0,
                     priority => 98,
                     gpgcheck => 1,
                     gpgkey => 'http://repo.grid.iu.edu/osg/3.4/RPM-GPG-KEY-OSG',
@@ -25,7 +25,7 @@ class singularity::install {
                     descr => 'OSG Software for Enterprise Linux 7 - $basearch',
                     mirrorlist => 'http://repo.grid.iu.edu/mirror/osg/3.4/el7/release/$basearch',
                     failovermethod => priority,
-                    enabled => 1,
+                    enabled => 0,
                     priority => 98,
                     gpgcheck => 1,
                     gpgkey => 'http://repo.grid.iu.edu/osg/3.4/RPM-GPG-KEY-OSG',
@@ -42,6 +42,8 @@ class singularity::install {
         package {'singularity':
             ensure => $::singularity::package_ensure,
             name   => $::singularity::package_name,
+            provider => yum,
+            install_options => [{'--enablerepo' => 'osg'},],
         }
     }
 }
