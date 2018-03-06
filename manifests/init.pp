@@ -2,11 +2,13 @@
 class singularity (
   String $package_ensure = 'present',
   String $package_name = $singularity::params::package_name,
-  Boolean $manage_osg_repo = true,
+  Boolean $manage_wlcg_repo = true,
+#  Boolean $manage_osg_repo = true,
   String $config_path = $singularity::params::config_path,
   String $config_template = 'singularity/singularity.conf.erb',
   Enum['yes','no'] $allow_setuid  = 'yes',
-  Integer $max_loop_devices = 256,
+#  Integer $max_loop_devices = 256,
+  Integer $max_loop_devices = 0,
   Enum['yes','no'] $allow_pid_ns = 'yes',
   Enum['yes','no'] $config_passwd = 'yes',
   Enum['yes','no'] $config_group = 'yes',
@@ -34,9 +36,11 @@ class singularity (
 ) inherits singularity::params {
 
   contain singularity::install
-  contain singularity::config
+#  contain singularity::config
+  contain singularity::mount
 
   Class['singularity::install']
-  ->Class['singularity::config']
+  ->Class['singularity::mount']
+#  ->Class['singularity::config']
 
 }
