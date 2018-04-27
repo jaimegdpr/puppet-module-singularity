@@ -36,11 +36,11 @@ class singularity (
 ) inherits singularity::params {
 
   contain singularity::install
-#  contain singularity::config
+  contain singularity::config
   contain singularity::mount
 
   Class['singularity::install']
   ->Class['singularity::mount']
-#  ->Class['singularity::config']
+  ->Class['singularity::config']
 
 }
