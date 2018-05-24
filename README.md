@@ -3,7 +3,7 @@
 [![Puppet Forge](http://img.shields.io/puppetforge/v/treydock/singularity.svg)](https://forge.puppetlabs.com/treydock/singularity)
 [![Build Status](https://travis-ci.org/treydock/puppet-module-singularity.png)](https://travis-ci.org/treydock/puppet-module-singularity)
 
-####Table of Contents
+#### Table of Contents
 
 1. [Overview](#overview)
 2. [Usage - Configuration options](#usage)
@@ -44,47 +44,52 @@ Install and configure singularity:
 #### singularity
 
 Below are parameter defaults in Hiera format:
+```yaml
+singularity::package_ensure: present
+singularity::package_name: singularity
+singularity::manage_epel: true
+singularity::config_path: /etc/singularity/singularity.conf
+singularity::config_template: singularity/singularity.conf.erb
+singularity::allow_setuid: 'yes'
+singularity::max_loop_devices: 256
+singularity::allow_pid_ns: 'yes'
+singularity::config_passwd: 'yes'
+singularity::config_group: 'yes'
+singularity::config_resolv_conf: 'yes'
+singularity::mount_proc: 'yes'
+singularity::mount_sys: 'yes'
+singularity::mount_dev: 'yes'
+singularity::mount_devpts: 'yes'
+singularity::mount_home: 'yes'
+singularity::mount_tmp: 'yes'
+singularity::mount_hostfs: 'no'
+singularity::bind_paths:
+  - /etc/localtime
+  - /etc/hosts
+singularity::user_bind_control: 'yes'
+singularity::enable_overlay: 'try'
+singularity::mount_slave: 'yes'
+singularity::sessiondir_max_size: 16
+#singularity::limit_container_owners: undef
+#singularity::limit_container_groups: undef
+#singularity::limit_container_paths: undef
+singularity::allow_containers:
+  squashfs: 'yes'
+  extfs: 'yes'
+  dir: 'yes'
+#singularity::autofs_bug_paths: undef
+```
 
-    singularity::package_ensure: present
-    singularity::package_name: singularity
-    singularity::manage_epel: true
-    singularity::config_path: /etc/singularity/singularity.conf
-    singularity::config_template: singularity/singularity.conf.erb
-    singularity::allow_setuid: yes
-    singularity::max_loop_devices: 256
-    singularity::allow_pid_ns: yes
-    singularity::config_passwd: yes
-    singularity::config_group: yes
-    singularity::config_resolv_conf: yes
-    singularity::mount_proc: yes
-    singularity::mount_sys: yes
-    singularity::mount_dev: yes
-    singularity::mount_devpts: yes
-    singularity::mount_home: yes
-    singularity::mount_tmp: yes
-    singularity::mount_hostfs: no
-    singularity::bind_paths:
-      - /etc/localtime
-      - /etc/hosts
-    singularity::user_bind_control: yes
-    singularity::enable_overlay: yes
-    singularity::mount_slave: yes
-    singularity::sessiondir_max_size: 16
-    #singularity::limit_container_owners: undef
-    #singularity::limit_container_paths: undef
-    singularity::allow_containers:
-      squashfs: yes
-      extfs: yes
-      dir: yes
-    #singularity::autofs_bug_paths: undef
+##### `package_ensure`
 
-#####`package_ensure`
 Package ensure parameter, defaults to `present`
 
-#####`package_name`
+##### `package_name`
+
 Package name, defaults to `singularity`
 
-#####`manage_epel`
+##### `manage_epel`
+
 Determines whether to include EPEL class before installing singularity.  Defaults to `true`
 
 

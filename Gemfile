@@ -11,6 +11,7 @@ group :development, :test do
   gem 'rspec-puppet-facts',       :require => false
   gem 'puppetlabs_spec_helper',   :require => false
   gem 'puppet-lint',              :require => false
+  gem 'metadata-json-lint',       :require => false
   gem 'puppet-syntax',            :require => false
   gem 'simplecov',                :require => false
   gem 'json_pure', '~>1.x',       :require => false
@@ -30,4 +31,4 @@ else
   gem 'facter', :require => false
 end
 
-gem 'puppet', ENV['PUPPET_GEM_VERSION'] || '~> 4.x', :require => false
+gem 'puppet', ENV['PUPPET_GEM_VERSION'] || '~> 5.x', :require => false
