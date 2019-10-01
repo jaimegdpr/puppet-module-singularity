@@ -15,6 +15,8 @@
 
 ## Overview
 
+We've modified this module according the requirements of our organization. Changes are not intended to work in any other environments
+
 This module manages the singularity package installation and configuration of singularity.conf.
 
 ## Usage
@@ -124,5 +126,3 @@ If you have Vagrant >= 1.2.0 installed you can run system tests
 ## TODO
 
 ## Further Information
-
-*
